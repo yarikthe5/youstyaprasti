@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Юстя, прости</title>
+    <style>
+        body {
+            background-color: #fdf2f2; /* Ніжно-рожевий фон */
+            color: #d32f2f; /* Червоний колір тексту */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.2;
+            overflow-x: hidden;
+            word-wrap: break-word;
+            text-align: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .text-item {
+            display: inline-block;
+            margin: 2px 5px;
+            font-weight: bold;
+            font-size: 14px;
+            opacity: 0;
+            animation: fadeIn 0.1s forwards;
+        }
+
+        /* Анімація появи тексту */
+        @keyframes fadeIn {
+            to { opacity: 0.7; }
+        }
+
+        h1 {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px 40px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 100;
+            color: #b71c1c;
+            font-size: 3rem;
+            pointer-events: none;
+            border: 2px solid #b71c1c;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Юстя, прасті 🙏</h1>
+
+    <div class="container" id="wall">
+        </div>
+
+    <script>
+        const container = document.getElementById('wall');
+        const word = "юстя прасті ";
+        const repeatCount = 3000; // Кількість повторів
+
+        let fullContent = "";
+        for (let i = 0; i < repeatCount; i++) {
+            // Додаємо невелику затримку для кожної фрази через інлайн стиль
+            const delay = (Math.random() * 2).toFixed(2);
+            fullContent += `<span class="text-item" style="animation-delay: ${delay}s">${word}</span>`;
+        }
+        
+        container.innerHTML = fullContent;
+    </script>
+
+</body>
+</html>
